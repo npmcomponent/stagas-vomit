@@ -1,0 +1,13 @@
+{
+  "name": "vomit",
+  "version": "0.0.1",
+  "description": "control flow helper",
+  "keywords": ["control flow"],
+  "author": "stagas",
+  "license": "MIT",
+  "dependencies": {
+    "stagas/promisify": "*",
+    "stagas/along": "*"
+  },
+  "scripts": ["index.js"]
+}

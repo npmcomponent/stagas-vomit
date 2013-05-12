@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>vomit</title>
+    <link rel="stylesheet" href="../build/build.css">
+  </head>
+  <body>
+    <script src="../build/build.js"></script>
+    <script>var vomit = require('vomit')</script>
+    <script>
+      var tests = 3;
+
+      function pass(){
+        --tests || document.write('all pass');
+      }
+
+      function assert(expr){
+        if (!expr) throw new Error('failed');
+      }
+    </script>
+    <script>
+      
+      var math = {};
+      
+      math.sum = function (a, b, cb) { setTimeout(function(){ cb(null, a+b); }, 10) };
+      math.mul = function (a, b, cb) { cb(null, a*b); };
+
+      vomit(math, function (sum, mul) {
+        return mul(sum(1, sum(2,2)), 3);
+      }, function(err, result){
+        assert(15===result);
+        pass();
+      });
+
+      vomit(math, function (sum, mul, next) {
+        mul(sum(1, sum(2,2)), 4, next);
+      }, function(err, result){
+        assert(20===result);
+        pass();
+      });
+
+      vomit(math, function (sum, mul) {
+        return mul(sum(1, sum(2,2)), 5);
+      }).when(function(err, result){
+        assert(25===result);
+        pass();
+      });
+
+    </script>
+  </body>
+</html>
