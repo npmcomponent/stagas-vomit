@@ -1,0 +1,13 @@
+{
+  "name": "stagas-vomit",
+  "description": "control flow helper",
+  "version": "0.0.1",
+  "keywords": [
+    "control flow"
+  ],
+  "dependencies": {
+    "stagas-promisify": "git://github.com/npmcomponent/stagas-promisify.git",
+    "stagas-along": "git://github.com/npmcomponent/stagas-along.git"
+  },
+  "license": "MIT"
+}

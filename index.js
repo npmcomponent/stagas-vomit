@@ -3,8 +3,8 @@
  * Module dependencies.
  */
 
-var promisify = require('promisify');
-var along = require('along');
+var promisify = require('stagas-promisify');
+var along = require('stagas-along');
 
 /**
  * Export `vomit`.
